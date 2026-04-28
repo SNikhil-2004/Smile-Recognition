@@ -1,0 +1,71 @@
+{% extends 'users/userbase.html' %}
+
+{% block content %}
+<style>
+    .predict-container {
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 30px;
+        background-color: #f7f7f7;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .predict-container h2 {
+        color: #333;
+    }
+
+    .predict-container input[type="file"] {
+        margin: 20px 0;
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    .predict-container button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .predict-container button:hover {
+        background-color: #45a049;
+    }
+
+    .result-label {
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .confidence-score {
+        font-size: 18px;
+        color: #666;
+    }
+</style>
+
+<div class="predict-container">
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h2>Smile Detection</h2>
+        <input type="file" name="image" accept="image/*" required>
+        <button type="submit">Predict Smile</button>
+    </form>
+
+    {% if label %}
+        <div class="result-label">Result: {{ label }}</div>
+        <div class="confidence-score">Confidence: {{ confidence }}</div>
+    {% endif %}
+</div>
+{% endblock %}

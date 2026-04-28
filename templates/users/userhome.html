@@ -1,0 +1,41 @@
+{% extends 'users/userbase.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .user-home-container {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 30px;
+        border-radius: 15px;
+        margin: 40px auto;
+        max-width: 900px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .user-home-container h1 {
+        text-align: center;
+        font-weight: 700;
+        font-size: 28px;
+        color: #2c3e50;
+        margin-bottom: 25px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    .user-home-container p {
+        font-size: 18px;
+        line-height: 1.8;
+        color: #444;
+        text-align: justify;
+    }
+</style>
+
+<div class="user-home-container">
+    <h1>A Robust Design of Real-Time Resilient Smile Recognition System using Hybrid Deep Learning Principles</h1>
+
+    <p>
+        Admin can login with his login details. Admin can activate the registered users. Once he activates a user, then only the user can login into our system. Admin can view users and see overall data in the browser. He can load the data, view the training data list and test data list, and also access forecast results.
+    </p>
+</div>
+
+{% endblock content %}
